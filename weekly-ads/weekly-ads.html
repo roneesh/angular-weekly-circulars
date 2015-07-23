@@ -2,7 +2,7 @@
 	<h2>Shop Weekly Ads</h2>
 	<ul  class="weekly-ads-list">
 		<li class="weekly-ad" ng-repeat="ad in vm.weeklyAdsData.data">
-			<a ui-sref="weekly-ads.circular({ id: ad.actId})" >
+			<a ui-sref="weekly-ads.circular({ id: ad.actId})" ng-click="vm.setActiveCircular(ad.actId)" >
 				<img src="{{ad.img}}" />
 				<p>{{ad.adName}}</p>
 				<p>{{ad.adValidDates}}</p>
@@ -10,4 +10,12 @@
 		</li>
 	</ul>
 </div>
-<div class="circular-child-view" ui-view></div>
+
+ <!-- The active circular stuff feels like a kludge -->
+<div class="circular-child-view">
+	<h2>{{ vm.activeCircular.adName }} </h2>
+	<p>{{ vm.activeCircular.adValidDates }} </p>
+	<div ui-view></div>
+	<a ui-sref="weekly-ads" ng-if="vm.activeCircular" ng-click="vm.removeActiveCircular()">Back To Weekly</a>
+
+</div>

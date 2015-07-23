@@ -10,6 +10,9 @@
 	function weeklyAdsController($scope, $log, $stateParams, weeklyAdsFactory) { 
 		var vm = this; // vm means viewModel
 		vm.params = $stateParams
+		vm.setActiveCircular = setActiveCircular;
+		vm.removeActiveCircular = removeActiveCircular;
+	    
 	    activate();
 
 	    function activate() {
@@ -24,5 +27,19 @@
 	    			return vm.weeklyAdsData;
 	    		})
 	    }
+
+	    function setActiveCircular(id) {
+	    	for (var i = 0; i < vm.weeklyAdsData.data.length; i++) {
+	    		if (vm.weeklyAdsData.data[i]["actId"] === id) {
+	    			vm.activeCircular = vm.weeklyAdsData.data[i]
+	    		}
+	    	}
+	    	console.log('active circular: ' + vm.activeCircular)
+	    }
+
+	    function removeActiveCircular() {
+	    	vm.activeCircular = null;
+	    }
+
 	}
 })();

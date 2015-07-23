@@ -17,8 +17,8 @@
 	    	return getCircularData($stateParams.id);
 	    }
 	    
-	    function getCircularData() {
-	    	return circularFactory.getCircularData()
+	    function getCircularData(circularId) {
+	    	return circularFactory.getCircularData(circularId)
 	    		.then(function(data) {
 	    			console.log('just before assignment');
 	    			vm.circularData = data;

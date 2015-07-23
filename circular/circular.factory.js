@@ -12,7 +12,10 @@
 			getCircularData: getCircularData
 		};
 
-		function getCircularData() {
+		function getCircularData(circularId) {
+			var id = circularId;
+			// defining id here to be used in getCircularCatch because for some reason promise can't accept an argument...? So using scope to have the id in that function..
+
 			return $http.get('/getPages?')
 				.then(getCircularComplete)
 				.catch(getCircularFailed);
@@ -24,8 +27,8 @@
 			function getCircularFailed() {
 				// getPagesAPIData3.json has no hotspots
 				// getPagesAPIData.json and Data2.json have hot spots
-				var file_url = 'circular/getPagesAPIData' + '1221312' + '.json'
-				return $http.get('circular/getPagesAPIData1221312.json')
+				var file_url = 'circular/getPagesAPIData' + id + '.json';
+				return $http.get(file_url);
 			}
 		}
 	}

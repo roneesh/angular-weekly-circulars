@@ -6,7 +6,7 @@
 	function config($stateProvider, $urlRouterProvider) {
 		$stateProvider
 			.state('weekly-ads', {
-				url: "weekly-ads",
+				url: "/weekly-ads",
 				templateUrl: "../weekly-ads/weekly-ads.html",
 				controller: "weeklyAdsController",
 				controllerAs: "vm"

@@ -1,0 +1,10 @@
+.view-container {
+	width: 85%;
+	border: 1px dotted black;
+	margin: 20px auto;
+	box-sizing: border-box;
+}
+
+.clearfix {
+	overflow: auto;
+}

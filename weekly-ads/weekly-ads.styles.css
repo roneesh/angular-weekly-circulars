@@ -1,0 +1,14 @@
+.weekly-ads {
+	padding: 20px;
+}
+.weekly-ads-list {
+	list-style-type: none;
+}
+.weekly-ad {
+	text-align: center;
+	width: 24%;
+	margin-right: 1%;
+	border: 1px dotted purple;
+	float: left;
+	margin-right: 20px;
+}

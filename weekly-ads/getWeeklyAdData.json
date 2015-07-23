@@ -1,0 +1,26 @@
+[
+    {
+        "actId": 1221312,
+        "img": "http://i.sears.com/s/i/la/SearsLocalAd_1221312_NATIONAL/01_TB_785832.jpg?hei=170&wid=150",
+        "imgWidth": 150,
+        "imgHeight": 170,
+        "adName": "Sears Back To School Fashions",
+        "adValidDates": "Jul 19, 2015 - Jul 25, 2015"
+    },
+    {
+        "actId": 1355910,
+        "img": "http://i.sears.com/s/i/la/SearsLocalAd_1355910_NATIONAL/Sears071915ODL13559101436809490687_0.jpg?hei=170&wid=150",
+        "imgWidth": 150,
+        "imgHeight": 170,
+        "adName": "Sears Outdoor Living",
+        "adValidDates": "Jul 19, 2015 - Jul 25, 2015"
+    },
+    {
+        "actId": 1221507,
+        "img": "http://i.sears.com/s/i/la/SearsLocalAd_1221507_NATIONAL/01_LT_763152.jpg?hei=170&wid=150",
+        "imgWidth": 150,
+        "imgHeight": 170,
+        "adName": "Sears Back to School Jeans on Sale",
+        "adValidDates": "Jul 26 - Aug 01, 2015"
+    }
+]

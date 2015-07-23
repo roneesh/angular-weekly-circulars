@@ -1,0 +1,220 @@
+[
+    {
+        "pgNo": 1,
+        "pgId": 1,
+        "pgName": "Sears_07_19_15_ODL_1355910_0",
+        "actId": 1355910,
+        "hs": [
+            {
+                "ksn": null,
+                "prdId": "07134596000P",
+                "prdName": "Garden Oasis Long Beach 7pc Patio Dining Set",
+                "coords": [
+                    115,
+                    525,
+                    876,
+                    911
+                ],
+                "dealType": null,
+                "dealValue": null,
+                "salePrice": null,
+                "registeredPrice": null,
+                "isMacroOffersBlockAtProductLevel": false,
+                "isMacroOffersBlockAtProductDealsLevel": false,
+                "membersOffer": "N",
+                "membersOfferDealType": null,
+                "offerCopy": null,
+                "offerName": null,
+                "hierarchyURL": "http://www.sears.com/garden-oasis-long-beach-7pc-patio-dining-set/p-07134596000P?redirectType=SKIP_LEVEL",
+                "productType": "Single Product"
+            },
+            {
+                "ksn": null,
+                "prdId": "07134588000P",
+                "prdName": "Garden Oasis Harrison 9' Patio Umbrella* Limited Availability",
+                "coords": [
+                    170,
+                    233,
+                    816,
+                    504
+                ],
+                "dealType": null,
+                "dealValue": null,
+                "salePrice": null,
+                "registeredPrice": null,
+                "isMacroOffersBlockAtProductLevel": false,
+                "isMacroOffersBlockAtProductDealsLevel": false,
+                "membersOffer": "N",
+                "membersOfferDealType": null,
+                "offerCopy": null,
+                "offerName": null,
+                "hierarchyURL": "http://www.sears.com/garden-oasis-harrison-9'-patio-umbrella/p-07134588000P?prdNo=32&blockNo=32&blockType=G32",
+                "productType": "Single Product"
+            },
+            {
+                "ksn": null,
+                "prdId": "07134611000P",
+                "prdName": "Kenmore 4 Burner Gas Grill With Stainless Steel Lid",
+                "coords": [
+                    1111,
+                    225,
+                    1670,
+                    907
+                ],
+                "dealType": null,
+                "dealValue": null,
+                "salePrice": null,
+                "registeredPrice": null,
+                "isMacroOffersBlockAtProductLevel": false,
+                "isMacroOffersBlockAtProductDealsLevel": false,
+                "membersOffer": "N",
+                "membersOfferDealType": null,
+                "offerCopy": null,
+                "offerName": null,
+                "hierarchyURL": "http://www.sears.com/kenmore-4-burner-gas-grill-with-stainless-steel/p-07134611000P?redirectType=SKIP_LEVEL",
+                "productType": "Single Product"
+            },
+            {
+                "ksn": null,
+                "prdId": "07103459000P",
+                "prdName": "Ty Pennington Style Parkside 4 Piece Deep Seating Set",
+                "coords": [
+                    24,
+                    1115,
+                    874,
+                    1452
+                ],
+                "dealType": null,
+                "dealValue": null,
+                "salePrice": null,
+                "registeredPrice": null,
+                "isMacroOffersBlockAtProductLevel": false,
+                "isMacroOffersBlockAtProductDealsLevel": false,
+                "membersOffer": "N",
+                "membersOfferDealType": null,
+                "offerCopy": null,
+                "offerName": null,
+                "hierarchyURL": "http://www.sears.com/ty-pennington-style-parkside-4-piece-deep-seating/p-07103459000P?redirectType=SKIP_LEVEL",
+                "productType": "Single Product"
+            },
+            {
+                "ksn": null,
+                "prdId": "07134582000P",
+                "prdName": "Garden Oasis Harrison 7 Piece Dining Set",
+                "coords": [
+                    964,
+                    1072,
+                    1711,
+                    1463
+                ],
+                "dealType": null,
+                "dealValue": null,
+                "salePrice": null,
+                "registeredPrice": null,
+                "isMacroOffersBlockAtProductLevel": false,
+                "isMacroOffersBlockAtProductDealsLevel": false,
+                "membersOffer": "N",
+                "membersOfferDealType": null,
+                "offerCopy": null,
+                "offerName": null,
+                "hierarchyURL": "http://www.sears.com/garden-oasis-harrison-7-piece-dining-set/p-07134582000P?redirectType=SKIP_LEVEL",
+                "productType": "Single Product"
+            },
+            {
+                "ksn": null,
+                "prdId": "07120148000P",
+                "prdName": "BBQ Pro 3-burner Gas Grill with side burner",
+                "coords": [
+                    224,
+                    1526,
+                    438,
+                    1773
+                ],
+                "dealType": null,
+                "dealValue": null,
+                "salePrice": null,
+                "registeredPrice": null,
+                "isMacroOffersBlockAtProductLevel": false,
+                "isMacroOffersBlockAtProductDealsLevel": false,
+                "membersOffer": "N",
+                "membersOfferDealType": null,
+                "offerCopy": null,
+                "offerName": null,
+                "hierarchyURL": "http://www.sears.com/bbq-pro-3-burner-gas-grill-with-side/p-07120148000P?redirectType=SKIP_LEVEL",
+                "productType": "Single Product"
+            },
+            {
+                "ksn": null,
+                "prdId": "07120562000P",
+                "prdName": "BBQ Pro Barrel Smoker with Offset Firebox",
+                "coords": [
+                    628,
+                    1498,
+                    875,
+                    1795
+                ],
+                "dealType": null,
+                "dealValue": null,
+                "salePrice": null,
+                "registeredPrice": null,
+                "isMacroOffersBlockAtProductLevel": false,
+                "isMacroOffersBlockAtProductDealsLevel": false,
+                "membersOffer": "N",
+                "membersOfferDealType": null,
+                "offerCopy": null,
+                "offerName": null,
+                "hierarchyURL": "http://www.sears.com/bbq-pro-barrel-smoker-with-offset-firebox/p-07120562000P?redirectType=SKIP_LEVEL",
+                "productType": "Single Product"
+            },
+            {
+                "ksn": null,
+                "prdId": "07116142000P",
+                "prdName": "Kenmore 4-Burner Stainless Steel Gas Grill",
+                "coords": [
+                    1060,
+                    1494,
+                    1298,
+                    1772
+                ],
+                "dealType": null,
+                "dealValue": null,
+                "salePrice": null,
+                "registeredPrice": null,
+                "isMacroOffersBlockAtProductLevel": false,
+                "isMacroOffersBlockAtProductDealsLevel": false,
+                "membersOffer": "N",
+                "membersOfferDealType": null,
+                "offerCopy": null,
+                "offerName": null,
+                "hierarchyURL": "http://www.sears.com/kenmore-4-burner-stainless-steel-gas-grill/p-07116142000P?redirectType=SKIP_LEVEL",
+                "productType": "Single Product"
+            },
+            {
+                "ksn": null,
+                "prdId": "07116167000P",
+                "prdName": "Char-Broil 4-Burner Infrared Gas Grill",
+                "coords": [
+                    1493,
+                    1506,
+                    1721,
+                    1790
+                ],
+                "dealType": null,
+                "dealValue": null,
+                "salePrice": null,
+                "registeredPrice": null,
+                "isMacroOffersBlockAtProductLevel": false,
+                "isMacroOffersBlockAtProductDealsLevel": false,
+                "membersOffer": "N",
+                "membersOfferDealType": null,
+                "offerCopy": null,
+                "offerName": null,
+                "hierarchyURL": "http://www.sears.com/char-broil-4-burner-infrared-gas-grill/p-07116167000P?redirectType=SKIP_LEVEL",
+                "productType": "Single Product"
+            }
+        ],
+        "img": "http://i.sears.com/s/i/la/SearsLocalAd_1355910_NATIONAL/Sears071915ODL13559101436809490687_0.jpg",
+        "imgWidth": 1725,
+        "imgHeight": 1875
+    }
+]

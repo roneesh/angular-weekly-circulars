@@ -1,0 +1,13 @@
+<div class="weekly-ads clearfix">
+	<h2>Shop Weekly Ads</h2>
+	<ul  class="weekly-ads-list">
+		<li class="weekly-ad" ng-repeat="ad in vm.weeklyAdsData.data">
+			<a ui-sref="weekly-ads.circular({ id: ad.actId})" >
+				<img src="{{ad.img}}" />
+				<p>{{ad.adName}}</p>
+				<p>{{ad.adValidDates}}</p>
+			</a>	
+		</li>
+	</ul>
+</div>
+<div class="circular-child-view" ui-view></div>

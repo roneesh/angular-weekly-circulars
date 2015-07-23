@@ -1,0 +1,44 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>eCircular</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+        <link rel="stylesheet" href="./styles.css">
+        <link rel="stylesheet" href="./circular/circular.styles.css">
+        <link rel="stylesheet" href="./weekly-ads/weekly-ads.styles.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <!-- Place favicon.ico in the root directory -->
+
+        <!-- <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+    </head>
+    <body ng-app="eCircular">
+        <p>eCircular index.html page</p>
+        
+        <a ui-sref="weekly-ads">View Weekly Ads</a> 
+
+        <div class="view-container">
+            <div ui-view></div>
+        </div>
+
+        <!-- Angular scripts in order -->
+        <script src="app/eCircular.module.js"></script>
+
+        <!-- weekly ads functionality -->
+        <script src="weekly-ads/weekly-ads.factory.js"></script>
+        <script src="weekly-ads/weekly-ads.controller.js"></script>
+        
+        <!-- circular functionality -->
+        <script src="circular/circular.factory.js"></script>
+        <script src="circular/circular.controller.js"></script>
+    </body>
+</html>

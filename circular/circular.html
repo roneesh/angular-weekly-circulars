@@ -1,5 +1,7 @@
 <div class="circular">
-    <div class="nav-arrow left"><i class="fa fa-chevron-left"></i></div>
+    <h2>{{ vm.activeCircular.adName }} </h2>
+    <p>{{ vm.activeCircular.adValidDates }} </p>
+    <div ng-if="vm.activeCircular" class="nav-arrow left"><i class="fa fa-chevron-left"></i></div>
     <div class="circular-spread" id="circular-spread">
         <div class="circular-page" ng-repeat="page in vm.circularData.data">
             <img src="{{page.img}}" />
@@ -8,7 +10,8 @@
         </div>
     </div>
 
-    <div class="nav-arrow right" ng-click="console.log('hi')" >
+    <div ng-if="vm.activeCircular" class="nav-arrow right" ng-click="console.log('hi')" >
         <i class="fa fa-chevron-right"></i>
     </div>
+    <a ui-sref="weekly-ads" ng-if="vm.activeCircular" ng-click="vm.removeActiveCircular()">Back To Weekly</a>
 </div>

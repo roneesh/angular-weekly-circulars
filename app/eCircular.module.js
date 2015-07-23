@@ -13,9 +13,7 @@
 			})
 		    .state('weekly-ads.circular', {
 		    	url: "/circular/:id",
-		    	templateUrl: "../circular/circular.html",
-		    	controller: "circularController",
-		    	controllerAs: "vm"
+		    	templateUrl: "../circular/circular.html"
 		    })
 	}
 })();

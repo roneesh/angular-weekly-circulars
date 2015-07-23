@@ -11,11 +11,4 @@
 	</ul>
 </div>
 
- <!-- The active circular stuff feels like a kludge -->
-<div class="circular-child-view">
-	<h2>{{ vm.activeCircular.adName }} </h2>
-	<p>{{ vm.activeCircular.adValidDates }} </p>
-	<div ui-view></div>
-	<a ui-sref="weekly-ads" ng-if="vm.activeCircular" ng-click="vm.removeActiveCircular()">Back To Weekly</a>
-
-</div>
+<div ui-view></div>

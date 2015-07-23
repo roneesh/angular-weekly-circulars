@@ -5,10 +5,11 @@
 		.module('eCircular')
 		.controller('weeklyAdsController', weeklyAdsController);
 
-	weeklyAdsController.$inject = ['$scope', '$log', '$stateParams', 'weeklyAdsFactory', 'circularFactory'];
+	weeklyAdsController.$inject = ['weeklyAdsFactory', 'circularFactory'];
 
-	function weeklyAdsController($scope, $log, $stateParams, weeklyAdsFactory, circularFactory) { 
+	function weeklyAdsController(weeklyAdsFactory, circularFactory) { 
 		var vm = this; // vm means viewModel
+		
 		vm.weeklyAdsData = undefined;
 		vm.activeCircular = undefined;
 		vm.setActiveCircular = setActiveCircular;
@@ -37,8 +38,9 @@
 	    		}
 	    	}
 
-	    	// then this function gets the activeCircular's page info
+	    	// then this function gets the activeCircular's page info from the circular factory
 	    	getCircularData(vm.activeCircular["actId"]);
+		    
 		    function getCircularData(circularId) {
 		    	return circularFactory.getCircularData(circularId)
 		    		.then(function(data) {
@@ -49,6 +51,7 @@
 		    }	    	
 	    }
 
+	    // a function to be called only by DOM click that resets the active circular
 	    function removeActiveCircular() {
 	    	vm.activeCircular = null;
 	    }

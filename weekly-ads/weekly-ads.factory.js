@@ -13,9 +13,7 @@
 		};
 
 		function getWeeklyAdsData() {
-			return $http.get('/getWeeklyAds?')
-				.then(getWeeklyAdsComplete)
-				.catch(getWeeklyAdsFailed);
+			return $http.get('/getWeeklyAds?').then(getWeeklyAdsComplete)["catch"](getWeeklyAdsFailed);
 
 			function getWeeklyAdsComplete() {
 				return response.data;

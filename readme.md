@@ -19,7 +19,7 @@ This is the implementation of the main circular feature
 
 controller: inherits from weekly-ads
 
-## other pages
+## other pages and folders
 
 ### first-page.html
 This page is just a dummy page to mimic navigating in from a truly outside page
@@ -29,3 +29,6 @@ This file allows the app to run from a server to avoid origin issues that happen
 
 ### styles.css
 Holder page for general styles for the app that will eventually be refactored into actual production stylesheets
+
+### dependencies
+This folder holds html5 and maybe soon modernizr and the versionf of angular and ui-router required so we don't have to call the CDN.

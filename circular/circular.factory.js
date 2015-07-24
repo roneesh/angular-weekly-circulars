@@ -16,9 +16,7 @@
 			var id = circularId;
 			// defining id here to be used in getCircularCatch because for some reason promise can't accept an argument...? So using scope to have the id in that function..
 
-			return $http.get('/getPages?')
-				.then(getCircularComplete)
-				.catch(getCircularFailed);
+			return $http.get('/getPages?').then(getCircularComplete)["catch"](getCircularFailed);
 
 			function getCircularComplete() {
 				return response.data;

@@ -7,7 +7,7 @@
 
 	weeklyAdsController.$inject = ['weeklyAdsFactory', 'circularFactory', '$location'];
 
-	function weeklyAdsController(weeklyAdsFactory, circularFactory, $stateParams) { 
+	function weeklyAdsController(weeklyAdsFactory, circularFactory, $location) { 
 		var vm = this; // vm means viewModel
 		
 		vm.weeklyAdsData = undefined;
@@ -57,15 +57,29 @@
 	    }
 
 	    function setPage(page) {
-	    	var currentPage = $stateParams["pgNo"],
-	    		destination,
-	    		pageCount = vm.circularData.length;
+	    	var cp = $location.search().pgNo, //cp means currentPage
+	    		destination = page, //will come in as number from select automatically
+	    		lastPage = vm.circularData.data.length;
 
-	    	// TODO: long bit of logic to make arrows set proper page
+	    	// logic to make arrows set proper page, if destination is a string
+	    	if (cp === undefined || cp === null || cp === "" || cp <= 1) {
+	    		cp = 1;
+	    	} 
+	    	else if (cp >= lastPage) {
+	    		cp = lastPage
+	    	}
+	    	
+	    	if (page === 'next') {
+	    		destination = (cp >= lastPage ? lastPage : cp + 1)
+	    	}
 
-	    	// TODO: Some code to navigate URL to new page
-	    	console.log($stateParams);
-	    	console.log('desitnation ?pgNo=', destination);
+	    	if (page === 'previous') {
+	    		destination = (cp <= 1 ? cp : cp - 1)
+	    	}
+
+	    	// logic to set queryString
+	    	// TODO: verify this doesn't break ui-router
+	    	$location.search('pgNo',destination);
 	    }
 
 	}

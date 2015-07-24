@@ -13,7 +13,8 @@
 			})
 		    .state('weekly-ads.circular', {
 		    	url: "/circular/:id?pgNo:int",
-		    	templateUrl: "../circular/circular.html"
+		    	templateUrl: "../circular/circular.html",
+		    	reloadOnSearch : false //this prevents page from re-loading when query string is changed
 		    })
 	}
 })();

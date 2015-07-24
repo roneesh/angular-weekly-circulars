@@ -5,20 +5,21 @@
 		.module('eCircular')
 		.controller('weeklyAdsController', weeklyAdsController);
 
-	weeklyAdsController.$inject = ['weeklyAdsFactory', 'circularFactory'];
+	weeklyAdsController.$inject = ['weeklyAdsFactory', 'circularFactory', '$location'];
 
-	function weeklyAdsController(weeklyAdsFactory, circularFactory) { 
+	function weeklyAdsController(weeklyAdsFactory, circularFactory, $stateParams) { 
 		var vm = this; // vm means viewModel
 		
 		vm.weeklyAdsData = undefined;
 		vm.activeCircular = undefined;
+		vm.activePage = undefined;
+		vm.setPage = setPage;
 		vm.setActiveCircular = setActiveCircular;
 		vm.removeActiveCircular = removeActiveCircular;
 	    
 	    activate();
 
 	    function activate() {
-	  		console.log('actiavte() weekly ads');
 	    	return getWeeklyAdsData();
 	    }
 
@@ -44,7 +45,6 @@
 		    function getCircularData(circularId) {
 		    	return circularFactory.getCircularData(circularId)
 		    		.then(function(data) {
-		    			console.log('just before assignment');
 		    			vm.circularData = data;
 		    			return vm.circularData;
 		    		})
@@ -54,6 +54,18 @@
 	    // a function to be called only by DOM click that resets the active circular
 	    function removeActiveCircular() {
 	    	vm.activeCircular = null;
+	    }
+
+	    function setPage(page) {
+	    	var currentPage = $stateParams["pgNo"],
+	    		destination,
+	    		pageCount = vm.circularData.length;
+
+	    	// TODO: long bit of logic to make arrows set proper page
+
+	    	// TODO: Some code to navigate URL to new page
+	    	console.log($stateParams);
+	    	console.log('desitnation ?pgNo=', destination);
 	    }
 
 	}

@@ -12,7 +12,7 @@
 				controllerAs: "vm"
 			})
 		    .state('weekly-ads.circular', {
-		    	url: "/circular/:id",
+		    	url: "/circular/:id?pgNo:int",
 		    	templateUrl: "../circular/circular.html"
 		    })
 	}

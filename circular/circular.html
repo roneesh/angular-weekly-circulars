@@ -1,17 +1,31 @@
 <div class="circular">
     <h2>{{ vm.activeCircular.adName }} </h2>
     <p>{{ vm.activeCircular.adValidDates }} </p>
-    <div ng-if="vm.activeCircular" class="nav-arrow left"><i class="fa fa-chevron-left"></i></div>
-    <div class="circular-spread" id="circular-spread">
-        <div class="circular-page" ng-repeat="page in vm.circularData.data">
-            <img src="{{page.img}}" />
-            <a href="{{hotspot.hierarchyURL}}" target="_blank" class="hotspot" ng-repeat="hotspot in page.hs" style="left: {{ hotspot.coords[0] * .49 }}px; top: {{ hotspot.coords[1] * .49 }}px; height: {{ (hotspot.coords[2] *.49) - (hotspot.coords[0] * .49) }}px; width: {{ (hotspot.coords[3] * .48) - (hotspot.coords[1] * .49) }}px;">
-            </a>
-        </div>
+
+    <!-- pick a circular page to go to -->
+    <div ng-if="vm.activeCircular" class="circular-navigation-dropdown">
+        <select ng-model="vm.activePage" ng-change="vm.setPage(vm.activePage)" ng-options="pg.pgNo as pg.pgNo for pg in vm.circularData.data">
+            <option value="0">Go to Page</option>
+        </select>
     </div>
 
-    <div ng-if="vm.activeCircular" class="nav-arrow right" ng-click="console.log('hi')" >
-        <i class="fa fa-chevron-right"></i>
-    </div>
-    <a ui-sref="weekly-ads" ng-if="vm.activeCircular" ng-click="vm.removeActiveCircular()">Back To Weekly Ads</a>
+        <!-- back one circular page -->
+        <div ng-if="vm.activeCircular" class="nav-arrow left" ng-click="vm.setPage('previous')">
+            <i class="fa fa-chevron-left"></i>
+        </div>
+        <!-- the circular spread itself -->
+        <div class="circular-spread" id="circular-spread" create-circular-paging>
+            <div class="circular-page {{page.pgNo}}" ng-repeat="page in vm.circularData.data">
+                <img src="{{page.img}}" />
+                <a href="{{hotspot.hierarchyURL}}" target="_blank" class="hotspot" ng-repeat="hotspot in page.hs" style="left: {{ hotspot.coords[0] * .49 }}px; top: {{ hotspot.coords[1] * .49 }}px; height: {{ (hotspot.coords[2] *.49) - (hotspot.coords[0] * .49) }}px; width: {{ (hotspot.coords[3] * .48) - (hotspot.coords[1] * .49) }}px;">
+                </a>
+            </div>
+        </div>
+        <!-- advance circular page -->
+        <div ng-if="vm.activeCircular" class="nav-arrow right" ng-click="vm.setPage('next')" >
+            <i class="fa fa-chevron-right"></i>
+        </div>
+
+    <!-- back to weekly ads index -->
+    <a ui-sref="weekly-ads" ng-if="vm.activeCircular">Back To Weekly Ads</a>
 </div>

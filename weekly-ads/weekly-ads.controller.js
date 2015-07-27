@@ -5,18 +5,23 @@
 		.module('eCircular')
 		.controller('weeklyAdsController', weeklyAdsController);
 
-	weeklyAdsController.$inject = ['weeklyAdsFactory', 'circularFactory', '$location'];
+	weeklyAdsController.$inject = ['weeklyAdsFactory', 'circularFactory', '$location', '$scope'];
 
-	function weeklyAdsController(weeklyAdsFactory, circularFactory, $location) { 
+	function weeklyAdsController(weeklyAdsFactory, circularFactory, $location, $scope) { 
 		var vm = this; // vm means viewModel
 		
-		vm.weeklyAdsData = undefined;
-		vm.activeCircular = undefined;
-		vm.activePage = undefined;
-		vm.location = $location.search().pgNo;
-		vm.setPage = setPage;
+		// data
+		vm.weeklyAdsData = undefined; //list of circulars
+		vm.activeCircular = undefined; // the circular being displayed
+		vm.circularData = undefined; //the page data of the circulars
+		vm.circularPageCount = undefined // the numerical page count of the active circular
+		vm.activePage = $location.search().pgNo; //the page the user wants scrolled to
+
+		// functions
 		vm.setActiveCircular = setActiveCircular;
 		vm.removeActiveCircular = removeActiveCircular;
+		vm.previousPage = previousPage;
+		vm.nextPage = nextPage;
 	    
 	    activate();
 
@@ -37,6 +42,8 @@
 	    	for (var i = 0; i < vm.weeklyAdsData.data.length; i++) {
 	    		if (vm.weeklyAdsData.data[i]["actId"] === id) {
 	    			vm.activeCircular = vm.weeklyAdsData.data[i]
+	    			vm.activePage = 1; //need to reset activePage
+
 	    		}
 	    	}
 
@@ -47,6 +54,7 @@
 		    	return circularFactory.getCircularData(circularId)
 		    		.then(function(data) {
 		    			vm.circularData = data;
+		    			vm.circularPageCount = vm.circularData.data.length;
 		    			return vm.circularData;
 		    		})
 		    }	    	
@@ -57,33 +65,18 @@
 	    	vm.activeCircular = null;
 	    }
 
-	    function setPage(page) {
-	    	var cp = $location.search().pgNo, //cp means currentPage
-	    		destination = page, //will come in as number from select automatically
-	    		lastPage = vm.circularData.data.length;
-
-	    	// logic to make arrows set proper page, if destination is a string
-	    	if (cp === undefined || cp === null || cp === "" || cp <= 1) {
-	    		cp = 1;
-	    	} 
-	    	else if (cp >= lastPage) {
-	    		cp = lastPage
-	    	}
-	    	
-	    	if (page === 'next') {
-	    		destination = (cp >= lastPage ? lastPage : cp + 1)
-	    	}
-
-	    	if (page === 'previous') {
-	    		destination = (cp <= 1 ? cp : cp - 1)
-	    	}
-
-	    	// logic to set queryString
-	    	$location.search('pgNo',destination);
-	    	vm.location = $location.search().pgNo;
-	    	return vm.location
-	    	
+	    function nextPage() {
+	    	vm.activePage = (vm.activePage >= vm.circularPageCount ? vm.circularPageCount : vm.activePage + 1)
 	    }
+
+	    function previousPage() {
+	    	vm.activePage = (vm.activePage <= 1 ? 1 : vm.activePage - 1)
+	    }
+
+	    // make into a directive of some kind
+	    $scope.$watch('vm.activePage', function(newValue, oldValue) {
+	    	$location.search('pgNo', newValue);
+	    })
 
 	}
 })();

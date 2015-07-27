@@ -15,35 +15,41 @@ angular
     .module('eCircular')
     .directive('createCircularPaging', createCircularPaging);
 
-createCircularPaging.$inject = ['$location'];
+createCircularPaging.$inject = [];
 
-function createCircularPaging($location) {
-    console.log('createCircularPaging directive function')
+function createCircularPaging() {
 
     var directive = {
         restrict: 'EA',
-        link: linkFunc,
+        link: linkFunc
     };
 
     return directive;
 
-    scope.$watch('$location.search()', scrollToPage);
-
     function linkFunc(scope, el, attr, ctrl) {
-        
-        // not working!
-        scope.$watch('vm.location', scrollToPage);
 
-        function detectPageNumber() {
-            var pgNo = $location.search().pgNo
+        // setting up the watcher to scroll to a page
+        scope.$watch(getActivePage, scrollToPage );
+
+        function getActivePage() {
+            return scope.vm.activePage;
         }
 
-        function scrollToPage() {
-            console.log('new page: 'scope.vm.location)
-        }
+        function scrollToPage(newValue, oldValue) {
 
-        detectPageNumber();
-        scrollToPage();
+            console.log(newValue, oldValue);
+
+            // iterate through children, find which div class a class of form 'circular-page 1' and then split to get '1' alone, then set the scrollLeft of the parent el[0] to the child's offsetLeft
+            for (var i = 0; i < el[0].children.length; i++) {
+                
+                var classIndex = el[0].children[i].getAttribute('class').split(' ')[1];
+                
+                if (classIndex === newValue.toString() ) {
+                    el[0].scrollLeft = angular.element(el[0].children[i])[0].offsetLeft;
+                }
+            }
+            return false; 
+        }
 
     }
 }

@@ -12,6 +12,8 @@
 		
 		vm.weeklyAdsData = undefined;
 		vm.activeCircular = undefined;
+		vm.activePage = undefined;
+		vm.location = $location.search().pgNo;
 		vm.setPage = setPage;
 		vm.setActiveCircular = setActiveCircular;
 		vm.removeActiveCircular = removeActiveCircular;
@@ -78,7 +80,8 @@
 
 	    	// logic to set queryString
 	    	$location.search('pgNo',destination);
-	    	return destination;
+	    	vm.location = $location.search().pgNo;
+	    	return vm.location
 	    	
 	    }
 

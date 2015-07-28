@@ -29,7 +29,7 @@
     <body ng-app="eCircular">
         <p>eCircular index.html page</p>
         
-        <a ui-sref="weekly-ads">View Weekly Ads</a> 
+        <a ui-sref="zip-code({ zip: 'Chicago-IL-60641'})">Set zip-code</a> 
 
         <div class="view-container">
             <div ui-view></div>
@@ -41,6 +41,7 @@
         <!-- weekly ads functionality -->
         <script src="weekly-ads/weekly-ads.factory.js"></script>
         <script src="circular/circular.factory.js"></script>
+        <script src="zip-code/zip-code.controller.js"></script>
         <script src="weekly-ads/weekly-ads.controller.js"></script>
         <script src="circular/directives/create-circular-paging.directives.js"></script>
 

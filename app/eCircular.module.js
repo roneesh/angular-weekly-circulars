@@ -5,13 +5,19 @@
 
 	function config($stateProvider, $urlRouterProvider) {
 		$stateProvider
-			.state('weekly-ads', {
+			.state('zip-code', {
+				url: ':zip',
+				templateUrl: '../zip-code/zip-code.html',
+				controller: 'zipCodeController',
+				controllerAs: 'vm'
+			})
+			.state('zip-code.weekly-ads', {
 				url: "/weekly-ads",
 				templateUrl: "../weekly-ads/weekly-ads.html",
 				controller: "weeklyAdsController",
 				controllerAs: "vm"
 			})
-		    .state('weekly-ads.circular', {
+		    .state('zip-code.weekly-ads.circular', {
 		    	url: "/circular/:id?pgNo:int",
 		    	templateUrl: "../circular/circular.html",
 				controller: "weeklyAdsController",

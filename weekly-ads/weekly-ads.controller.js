@@ -5,9 +5,9 @@
 		.module('eCircular')
 		.controller('weeklyAdsController', weeklyAdsController);
 
-	weeklyAdsController.$inject = ['weeklyAdsFactory', 'circularFactory', '$location', '$scope'];
+	weeklyAdsController.$inject = ['weeklyAdsFactory', 'circularFactory', '$location', '$stateParams', '$scope'];
 
-	function weeklyAdsController(weeklyAdsFactory, circularFactory, $location, $scope) { 
+	function weeklyAdsController(weeklyAdsFactory, circularFactory, $location, $stateParams, $scope) { 
 		var vm = this; // vm means viewModel
 		
 		// data
@@ -26,7 +26,7 @@
 	    activate();
 
 	    function activate() {
-	    	return getWeeklyAdsData();
+	    	getWeeklyAdsData();
 	    }
 
 	    function getWeeklyAdsData() {
@@ -34,6 +34,12 @@
 	    		.then(function(data) {
 	    			vm.weeklyAdsData = data;
 	    			return vm.weeklyAdsData;
+	    		}).then(function() {
+	    			// this needs to be there if the user copies and pastes a full url in, e.g. : #/weekly-ads/circular/1221507?pgNo=8
+	    			// this runs the click-handler that would normally set the active circular
+	    			if ($stateParams.id) {
+	    				vm.setActiveCircular(parseInt($stateParams.id));
+	    			}
 	    		})
 	    }
 
@@ -43,7 +49,6 @@
 	    		if (vm.weeklyAdsData.data[i]["actId"] === id) {
 	    			vm.activeCircular = vm.weeklyAdsData.data[i]
 	    			vm.activePage = 1; //need to reset activePage
-
 	    		}
 	    	}
 
@@ -66,10 +71,12 @@
 	    }
 
 	    function nextPage() {
+	    	// TODO: needs logic to handle null/NaN cases
 	    	vm.activePage = (vm.activePage >= vm.circularPageCount ? vm.circularPageCount : vm.activePage + 1)
 	    }
 
 	    function previousPage() {
+	    	// TODO: needs logic to handle null/NaN cases
 	    	vm.activePage = (vm.activePage <= 1 ? 1 : vm.activePage - 1)
 	    }
 

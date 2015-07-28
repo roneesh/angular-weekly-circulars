@@ -23,8 +23,6 @@
 			}
 
 			function getCircularFailed() {
-				// getPagesAPIData3.json has no hotspots
-				// getPagesAPIData.json and Data2.json have hot spots
 				var file_url = 'circular/getPagesAPIData' + id + '.json';
 				return $http.get(file_url);
 			}

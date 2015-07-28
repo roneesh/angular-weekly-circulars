@@ -1,7 +1,6 @@
 <div class="weekly-ads clearfix">
 	<h2>Shop Weekly Ads</h2>
 	<ul  class="weekly-ads-list">
-	<!-- OH BOY NG-CLICK IS CAUSING PROBLEMs, THIS DOESNT ALLOW FOR COPY AND PASTING OF LINK TO NAVIGATE STRAIGHT TO AN AREA, SINCE COPY AND PASTE WON'T RUN NG-CLICK, MUST INVESTIGATE A URL EVENT  -->
 		<li class="weekly-ad" ng-repeat="ad in vm.weeklyAdsData.data">
 			<a ui-sref="weekly-ads.circular({ id: ad.actId, pgNo: 1})" ng-click="vm.setActiveCircular(ad.actId)" >
 				<img src="{{ad.img}}" />

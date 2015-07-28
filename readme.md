@@ -18,6 +18,7 @@ factories for controller: weekly-ads.factory.js and circular.factory.js
 This is the implementation of the main circular feature
 
 controller: inherits from weekly-ads
+direcitves: create-circular-paging.js -> scrolls the circular the page number stored in the controller's view model
 
 ## other pages and folders
 

@@ -11,13 +11,13 @@
 		var vm = this; // vm means viewModel
 		
 		// data
-		vm.weeklyAdsData = undefined; //list of circulars
+		vm.weeklyAdsData = undefined; // list of circulars
 		vm.activeCircular = undefined; // the circular being displayed
 		vm.circularData = undefined; //the page data of the circulars
-		vm.circularPageCount = undefined // the numerical page count of the active circular
-		vm.activePage = $location.search().pgNo; //the page the user wants scrolled to
+		vm.circularPageCount = undefined // number: page count of active circular
+		vm.activePage = $location.search().pgNo; //page in circular to open
 
-		// functions
+		// functions available in DOM
 		vm.setActiveCircular = setActiveCircular;
 		vm.removeActiveCircular = removeActiveCircular;
 		vm.previousPage = previousPage;
@@ -80,7 +80,7 @@
 	    	vm.activePage = (vm.activePage <= 1 ? 1 : vm.activePage - 1)
 	    }
 
-	    // make into a directive of some kind
+	    // TODO: make into a directive of some kind
 	    $scope.$watch('vm.activePage', function(newValue, oldValue) {
 	    	$location.search('pgNo', newValue);
 	    })

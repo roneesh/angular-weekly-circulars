@@ -80,7 +80,7 @@
 	    	vm.activePage = (vm.activePage <= 1 ? 1 : vm.activePage - 1)
 	    }
 
-	    // TODO: make into a directive of some kind
+	    // WATCHERS
 	    $scope.$watch('vm.activePage', function(newValue, oldValue) {
 	    	$location.search('pgNo', newValue);
 	    })

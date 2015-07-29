@@ -5,10 +5,10 @@
 
 	function config($stateProvider, $urlRouterProvider) {
 		$stateProvider
-			.state('zip-code', {
-				url: ':zip',
-				templateUrl: '../zip-code/zip-code.html',
-				controller: 'zipCodeController',
+			.state('store', {
+				url: ':store',
+				templateUrl: '../store/store.html',
+				controller: 'storeController',
 				controllerAs: 'vm'
 			})
 			.state('zip-code.weekly-ads', {

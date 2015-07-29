@@ -1,0 +1,15 @@
+<h1> Zip codes!</h1>
+
+<form id="zip-form" ng-submit="vm.zipSubmit()">
+	<label for="circular-zip-code">set zip code</label>
+	<input id="circular-zip-code" type="text" ng-model="vm.userSuppliedZipCode" 
+		min="5" max="5" >
+	<input type="submit" value="Set zip" ng-click="vm.setZip(user)">
+</form>
+
+{{vm.zipCode}}
+
+{{vm.storesByZipCode}}
+
+<!-- <a ui-sref="zip-code.weekly-ads" ng-click="">View weekly ads for zipcode </a> -->
+<div ui-view></div>

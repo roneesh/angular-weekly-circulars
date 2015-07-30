@@ -7,9 +7,28 @@
 	<input type="submit" value="Set zip" ng-click="vm.setZip(user)">
 </form>
 
-{{vm.zipCode}}
+<div class="store-details" ng-if="vm.activeStore">
+	<span>Store Name: {{ vm.activeStore.orgUnNm}} </span><br/>
+	<span>Phone Number: {{ vm.activeStore.ph1}}</span><br/>
+	<span>Hours</span><br/>
+	<span>Phone Number: {{ vm.activeStore.ph1}}</span><br/>
+	<span>Store Services: {{ vm.activeStore.attrname}}</span><br/>
+	<span>Open/Cl time: {{vm.activeStore.stClTm}} & {{vm.activeStore.stOpTm}}</span>
+</div>
 
-{{vm.storesByZipCode}}
+<div class="other-stores" ng-if="vm.activeStore">
+	<h2>set a new store</h2>
+	<form ng-submit="vm.setActiveStore()">
+		<label ng-repeat="store in vm.threeClosestStores">
+			{{store.orgUnNm}} - {{store.distance}}mi.
+			<input type="radio" name="newStore" ng-model="vm.newStore" ng-value="store" required />
+		</label>
+		<input type="submit" value="Change Store">
+		{{vm.newStore}}
+	</form>
+
+</div>
+
 
 <!-- <a ui-sref="zip-code.weekly-ads" ng-click="">View weekly ads for zipcode </a> -->
 <div ui-view></div>

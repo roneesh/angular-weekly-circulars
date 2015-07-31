@@ -6,18 +6,18 @@
 	function config($stateProvider, $urlRouterProvider) {
 		$stateProvider
 			.state('store', {
-				url: ':store',
+				url: '/',
 				templateUrl: '../store/store.html',
 				controller: 'storeController',
 				controllerAs: 'vm'
 			})
-			.state('zip-code.weekly-ads', {
-				url: "/weekly-ads",
+			.state('store.weekly-ads', {
+				url: ":store/weekly-ads",
 				templateUrl: "../weekly-ads/weekly-ads.html",
 				controller: "weeklyAdsController",
 				controllerAs: "vm"
 			})
-		    .state('zip-code.weekly-ads.circular', {
+		    .state('store.weekly-ads.circular', {
 		    	url: "/circular/:id?pgNo:int",
 		    	templateUrl: "../circular/circular.html",
 				controller: "weeklyAdsController",

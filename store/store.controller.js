@@ -5,9 +5,9 @@
 		.module('eCircular')
 		.controller('storeController', storeController);
 
-	storeController.$inject = ['storeFactory', '$scope'];
+	storeController.$inject = ['storeFactory', '$scope', '$state'];
 
-	function storeController(storeFactory, $scope) { 
+	function storeController(storeFactory, $scope, $state) { 
 		var vm = this; // vm means viewModel
 
 		// data
@@ -18,7 +18,7 @@
 
 		// functions available in DOM
 		vm.zipSubmit = zipSubmit;
-		vm.setActiveStore = setActiveStore
+		vm.setNewActiveStoreViaZipChange = setNewActiveStoreViaZipChange
 
 		function zipSubmit() {
 			vm.zipCode = angular.copy(vm.userSuppliedZipCode);
@@ -26,8 +26,8 @@
 			vm.userSuppliedZipCode = undefined;
 		}	
 
-		function setActiveStore() {
-			// vm.newStore should change zip, and this change in zip will re-initiate the flow via the watcher on vm.zipCode
+		function setNewActiveStoreViaZipChange() {
+			// By changing the zipCode the watcher gets new stores
 			vm.zipCode = vm.newStore.zip
 		}
 
@@ -57,6 +57,9 @@
 	    		})
 	    		.then(function() {
 	    			setNearestStoreAsActiveStore();
+	    		})
+	    		.then(function() {
+	    			setStateToActiveStore();
 	    		})
 		}
 
@@ -109,6 +112,10 @@
 				return vm.activeStore = nearestStore
 			}
 			
+		}
+
+		function setStateToActiveStore() {
+			$state.go('store.weekly-ads', {'store' : vm.activeStore.cty});
 		}
 
 	}

@@ -18,7 +18,7 @@
 
 <div class="other-stores" ng-if="vm.activeStore">
 	<h2>set a new store</h2>
-	<form ng-submit="vm.setActiveStore()">
+	<form ng-submit="vm.setNewActiveStoreViaZipChange()">
 		<label ng-repeat="store in vm.threeClosestStores">
 			{{store.orgUnNm}} - {{store.distance}}mi.
 			<input type="radio" name="newStore" ng-model="vm.newStore" ng-value="store" required />
@@ -29,6 +29,4 @@
 	{{vm.zipCode}}
 </div>
 
-
-<!-- <a ui-sref="zip-code.weekly-ads" ng-click="">View weekly ads for zipcode </a> -->
 <div ui-view></div>

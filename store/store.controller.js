@@ -96,6 +96,8 @@
 				}
 				else {
 					nearestStore = vm.storesNearbyZipCode.data[0];
+					// three nearest store assignment needs to be expanded to not just count up from array, but also check before and after
+					// it's an edge case where perhaps the data for hte zip will return the desired store as index 1, 2, 3 etc and thus index 0 store might need to be on this list, not high priority...
 					vm.threeClosestStores = vm.storesNearbyZipCode.data.slice(1, 4);
 					return vm.activeStore = nearestStore
 				}

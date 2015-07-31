@@ -101,7 +101,8 @@
 					vm.threeClosestStores = vm.storesNearbyZipCode.data.slice(1, 4);
 					return vm.activeStore = nearestStore
 				}
-			
+				vm.newStore = undefined;
+
 			} else {
 				nearestStore = vm.storesNearbyZipCode.data[0];
 				vm.threeClosestStores = vm.storesNearbyZipCode.data.slice(1, 4);

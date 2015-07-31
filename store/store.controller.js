@@ -26,17 +26,9 @@
 			vm.userSuppliedZipCode = undefined;
 		}	
 
-		function setActiveStore(store) {
-
-			// this function should really go through the whole flow again, but save the store that the new user wants..
-
-			// the store should change the zip, because the user's store is pretty far elsewhere... but will verify first.
-
-			vm.activeStore = vm.newStore;
-			vm.newStore = undefined;
-
-			// get the three nearest stores to the new store
-
+		function setActiveStore() {
+			// vm.newStore should change zip, and this change in zip will re-initiate the flow via the watcher on vm.zipCode
+			vm.zipCode = vm.newStore.zip
 		}
 
 		// watchers
@@ -69,7 +61,11 @@
 		}
 
 		function setNearestStoreAsActiveStore() {
-			var nearestStore = vm.storesNearbyZipCode.data[0];
+			var nearestStore = undefined,
+				activeStore = undefined,
+				activeStoreIndex = undefined,
+				storeCountFromAPIResponse = vm.storesNearbyZipCode.data.length;
+
 			// use .sort() with a comparator function
 			vm.storesNearbyZipCode.data.sort(function(a,b) {
 				if (a.distance < b.distance) {
@@ -81,10 +77,35 @@
 				// a must be equal to b
 				return 0;
 			});
-			// sets three closest stores as indices 1,2,3 of sorted data array
-			vm.threeClosestStores = vm.storesNearbyZipCode.data.slice(1, 4);
-			//is an object {}
-			return vm.activeStore = vm.storesNearbyZipCode.data[0]; 
+
+			// if there was a desired new store from the radio buttons, get it's index
+			if (vm.newStore) {
+
+				// get index of where desired store is in new data
+				for (var i = 0; i < storeCountFromAPIResponse; i++) {
+					if(vm.newStore.add1 === vm.storesNearbyZipCode.data[i].add1) {
+						activeStoreIndex = i;
+					}
+				}
+
+				// if we did find that store in data (we should), set it as active and set the three closest stores nearby
+				if (activeStoreIndex) {
+					activeStore = vm.storesNearbyZipCode.data[activeStoreIndex];
+					vm.activeStore = activeStore;
+					vm.threeClosestStores = vm.storesNearbyZipCode.data.slice(activeStoreIndex, (activeStoreIndex + 3));
+				}
+				else {
+					nearestStore = vm.storesNearbyZipCode.data[0];
+					vm.threeClosestStores = vm.storesNearbyZipCode.data.slice(1, 4);
+					return vm.activeStore = nearestStore
+				}
+			
+			} else {
+				nearestStore = vm.storesNearbyZipCode.data[0];
+				vm.threeClosestStores = vm.storesNearbyZipCode.data.slice(1, 4);
+				return vm.activeStore = nearestStore
+			}
+			
 		}
 
 	}

@@ -1,32 +1,50 @@
-<h1> Zip codes!</h1>
-
-<form id="zip-form" ng-submit="vm.zipSubmit()">
-	<label for="circular-zip-code">set zip code</label>
-	<input id="circular-zip-code" type="text" ng-model="vm.userSuppliedZipCode" 
-		min="5" max="5" >
-	<input type="submit" value="Set zip" ng-click="vm.setZip(user)">
-</form>
-
-<div class="store-details" ng-if="vm.activeStore">
-	<span>Store Name: {{ vm.activeStore.orgUnNm}} </span><br/>
-	<span>Phone Number: {{ vm.activeStore.ph1}}</span><br/>
-	<span>Hours</span><br/>
-	<span>Phone Number: {{ vm.activeStore.ph1}}</span><br/>
-	<span>Store Services: {{ vm.activeStore.attrname}}</span><br/>
-	<span>Open/Cl time: {{vm.activeStore.stClTm}} & {{vm.activeStore.stOpTm}}</span>
-</div>
-
-<div class="other-stores" ng-if="vm.activeStore">
-	<h2>set a new store</h2>
-	<form ng-submit="vm.setNewActiveStoreViaZipChange()">
-		<label ng-repeat="store in vm.threeClosestStores">
-			{{store.orgUnNm}} - {{store.distance}}mi.
-			<input type="radio" name="newStore" ng-model="vm.newStore" ng-value="store" required />
+<div class="local-store">
+	<h2 class="local-store-heading">Local Store</h2>
+	<div class="store-name" ng-if="vm.activeStore">
+		<span>{{ vm.activeStore.orgUnNm}} </span><br/>
+		<span>{{ vm.activeStore.add1}}</span><br/>
+		<label for="details-toggle">
+			Store Details  <i class="fa fa-chevron-down"></i>
 		</label>
-		<input type="submit" value="Change Store">
-		{{vm.newStore}}
-	</form>
-	{{vm.zipCode}}
+		<input type="checkbox" id="details-toggle" />
+		<div class="store-details">
+			<div class="store-details-phone">
+				Phone Number <br/>
+				{{ vm.activeStore.ph1}}
+			</div>
+			<div class="store-details-hours">
+				Hours <br/>
+				Open/Cl time: {{vm.activeStore.stClTm}} & {{vm.activeStore.stOpTm}
+			</div>
+			<hr/>
+			<span>Store Services: </span><br/>
+			<span class="store-service secondary" ng-repeat="service in vm.activeStore.attrname">{{service}}</span>
+		</div>
+	</div>
+
+	<div class="change-store">
+		<label for="change-toggle">
+			Change
+		</label>
+		<input type="checkbox" id="change-toggle" />
+		<div class="other-stores" ng-if="vm.activeStore">
+			<form ng-submit="vm.setNewActiveStoreViaZipChange()">
+				<label ng-repeat="store in vm.threeClosestStores">
+					<input type="radio" name="newStore" ng-model="vm.newStore" ng-value="store" required />
+					{{store.orgUnNm}} - {{store.distance}}mi.
+				</label>
+				<input type="submit" value="Change Store">
+			</form>
+			<hr/>
+			{{vm.zipCode}}
+			<form id="zip-form" ng-submit="vm.zipSubmit()">
+				<label for="circular-zip-code">set zip code</label>
+				<input id="circular-zip-code" type="text" ng-model="vm.userSuppliedZipCode" min="5" max="5" >
+				<input type="submit" value="Set zip" ng-click="vm.setZip(user)">
+		</form>
+		</div>
+		
+	</div>
 </div>
 
 <div ui-view></div>

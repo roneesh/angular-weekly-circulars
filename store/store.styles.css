@@ -1,0 +1,54 @@
+.local-store {
+	background-color: #EEE;
+	border-bottom: 1px sold #666;
+	height: 100px;
+}
+.local-store-heading, .store-name, .change-store {
+	width: 15%;
+	box-sizing: border-box;
+	padding: 20px;
+	float: left;
+	position: relative;
+}
+.store-name { width: 20%; }
+.change-store { 
+	width: 65%; 
+	/*DISPLAY: NONE;  TEMPORARY */
+}
+
+.store-details, .other-stores {
+	height: 0px;
+	position: absolute;
+	width: 400px;
+	transition: all 0.2s;
+	overflow: auto;
+	background-color: white;
+	padding: 0 14px;
+	top: 100px;
+	overflow-y: hidden;
+}
+#details-toggle, #change-toggle {
+	display: none;
+}
+#details-toggle:checked ~ .store-details, #change-toggle:checked ~ .other-stores {
+	height: 300px;
+	padding: 14px;
+	z-index: 3;
+	border: 1px solid #EEE;
+}
+.store-details .store-details-phone, .store-details .store-details-hours {
+	width: 50%;
+	box-sizing: border-box;
+	padding: 14px;
+	float: left;
+}
+.store-details .store-service {
+	width: 50%;
+	display: inline-block;
+
+}
+
+#change-toggle:checked ~ .other-stores {
+	top: auto;
+}
+.other-stores label, .other-stores input[type="submit"] { display: block; }

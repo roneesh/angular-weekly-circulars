@@ -10,7 +10,7 @@
         <!-- <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
         <link rel="stylesheet" href="./shc-enterprise-sears.1.5.0.css">
         <link rel="stylesheet" href="./styles.css">
-        <link rel="stylesheet" href="./store/store.styles.css"
+        <link rel="stylesheet" href="./store/store.styles.css" />
         <link rel="stylesheet" href="./circular/circular.styles.css">
         <link rel="stylesheet" href="./weekly-ads/weekly-ads.styles.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -29,18 +29,13 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
     </head>
     <body ng-app="eCircular">
-        <p>eCircular index.html page</p>
-        
-        <a ui-sref="store">Set zip-code</a> 
-
-        <div class="view-container">
-            <div ui-view></div>
-        </div>
+        <!-- <a ui-sref="store">Set zip-code</a>  -->
+        <!-- <div class="view-container"> -->
+        <div ui-view></div>
+        <!-- </div> -->
 
         <!-- Angular scripts in order -->
         <script src="app/eCircular.module.js"></script>
-
-        <!-- weekly ads functionality -->
         <script src="weekly-ads/weekly-ads.factory.js"></script>
         <script src="circular/circular.factory.js"></script>
         <script src="store/store.factory.js"></script>

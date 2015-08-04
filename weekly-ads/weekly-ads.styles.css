@@ -1,5 +1,6 @@
 .weekly-ads {
 	padding: 20px;
+	transition: all 0.2s;
 }
 .weekly-ads-list {
 	list-style-type: none;
@@ -8,7 +9,20 @@
 	text-align: center;
 	width: 24%;
 	margin-right: 1%;
-	border: 1px dotted purple;
+	/*border: 1px dotted purple;*/
 	float: left;
 	margin-right: 20px;
+}
+
+/* chaining to increase specificity */
+.weekly-ads.has-active-circular h2 { display: none; }
+.weekly-ads.has-active-circular {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 305px;
+	padding: 5px;
+} 
+.weekly-ads.has-active-circular .weekly-ad p {
+	display: none;
 }

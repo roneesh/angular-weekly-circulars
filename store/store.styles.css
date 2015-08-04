@@ -45,7 +45,6 @@
 .store-details .store-service {
 	width: 50%;
 	display: inline-block;
-
 }
 
 #change-toggle:checked ~ .other-stores {

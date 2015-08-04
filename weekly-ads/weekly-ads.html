@@ -1,4 +1,4 @@
-<div class="weekly-ads clearfix">
+<div class="weekly-ads clearfix" ng-class="{'has-active-circular': vm.activeCircular !== undefined}">
 	<h2>Shop Weekly Ads</h2>
 	<ul  class="weekly-ads-list">
 		<li class="weekly-ad" ng-repeat="ad in vm.weeklyAdsData.data">

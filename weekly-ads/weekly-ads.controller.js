@@ -50,8 +50,9 @@
 	    			vm.activeCircular = vm.weeklyAdsData.data[i]
 	    			vm.activePage = 1; //need to reset activePage
 	    		}
-	    	}
 
+	    	}
+	    	console.log('activeCircularSet')
 	    	// then this function gets the activeCircular's page info from the circular factory
 	    	getCircularData(vm.activeCircular["actId"]);
 		    

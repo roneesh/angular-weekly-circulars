@@ -1,5 +1,7 @@
 <div class="local-store">
-	<h2 class="local-store-heading">Local Store</h2>
+	<h2 class="local-store-heading">
+		<a ui-sref="store" ui-sref-opts="{reload: true}">Local Store</a>
+	</h2>
 	<div class="store-name" ng-if="vm.activeStore">
 		<span>{{ vm.activeStore.orgUnNm}} </span><br/>
 		<span>{{ vm.activeStore.add1}}</span><br/>
@@ -22,18 +24,26 @@
 		</div>
 	</div>
 
-	<div class="change-store">
+	<div class="set-store" ng-if="!vm.activeStore">
+		<form id="zip-form" ng-submit="vm.zipSubmit()">
+			<label for="circular-zip-code">Set your zip code to see store circulars near you.</label>
+			<br/>
+			<input id="circular-zip-code" type="text" ng-model="vm.userSuppliedZipCode" min="5" max="5" >
+			<input class="shcBtn shcOrangeBtn" type="submit" value="Set zip" ng-click="vm.setZip(user)">
+		</form>
+	</div>
+	<div class="change-store" ng-if="vm.activeStore">
 		<label for="change-toggle">
 			Change
 		</label>
 		<input type="checkbox" id="change-toggle" />
 		<div class="other-stores" >
-			<form ng-submit="vm.setNewActiveStoreViaZipChange()" ng-if="vm.activeStore">
+			<form ng-submit="vm.setNewActiveStoreViaZipChange()" >
 				<label ng-repeat="store in vm.threeClosestStores">
-					<input type="radio" name="newStore" ng-model="vm.newStore" ng-value="store" required />
+					<input class="" type="radio" name="newStore" ng-model="vm.newStore" ng-value="store" required />
 					{{store.orgUnNm}} - {{store.distance}}mi.
 				</label>
-				<input type="submit" value="Change Store">
+				<input class="shcBtn shcOrangeBtn" type="submit" value="Change Store">
 				<hr/>
 			</form>
 			
@@ -41,7 +51,7 @@
 			<form id="zip-form" ng-submit="vm.zipSubmit()">
 				<label for="circular-zip-code">set zip code</label>
 				<input id="circular-zip-code" type="text" ng-model="vm.userSuppliedZipCode" min="5" max="5" >
-				<input type="submit" value="Set zip" ng-click="vm.setZip(user)">
+				<input class="shcBtn shcOrangeBtn" type="submit" value="Set zip" ng-click="vm.setZip(user)">
 			</form>
 		</div>
 		

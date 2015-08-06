@@ -31,6 +31,15 @@
 			vm.zipCode = vm.newStore.zip
 		}
 
+		activate()
+
+		function activate() {
+			if (vm.zipCode) {
+				getNearbyStoresByZipCode(parseInt(vm.zipCode,10));
+			}
+			console.log('store activate');
+		}
+
 		// watchers
 		$scope.$watch('vm.zipCode', function(newValue, oldValue) {
 			if (vm.zipCode) {
@@ -60,6 +69,9 @@
 	    		})
 	    		.then(function() {
 	    			setStateToActiveStore();
+	    		})
+	    		.then(function() {
+	    			saveZipAsCookie();
 	    		})
 		}
 
@@ -116,6 +128,12 @@
 
 		function setStateToActiveStore() {
 			$state.go('store.weekly-ads', {'store' : vm.activeStore.cty});
+		}
+
+		function saveZipAsCookie() {
+			if (vm.zipCode) {
+				document.cookie = 'zipCode=' + vm.zipCode;
+			}
 		}
 
 	}
